@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+$header-bg-height: 200px;
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0 25px;
+
+  font-family: Helvetica, arial, sans-serif;
+
+  background: rgb(242,242,242);
+  background: linear-gradient(180deg, rgba(49,49,49,1) 0%, rgba(49,49,49,1) $header-bg-height, rgba(242,242,242,1) $header-bg-height);
+  background-repeat: no-repeat;
+
+  height: 100vh;
+}

@@ -1,0 +1,16 @@
+<form [formGroup]="loginAccount" (ngSubmit)="onSubmit()">
+
+  <input type="text" placeholder="Username" formControlName="username">
+
+  <input type="password" placeholder="Password" formControlName="password">
+
+  <div *ngIf="loginAccount.errors">
+    <div *ngIf="loginAccount.errors.loginFailed">
+      Something went wrong, please try again
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="loginAccount.invalid">Login</button>
+
+</form>
+

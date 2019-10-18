@@ -1,0 +1,42 @@
+<form [formGroup]="registerAccount" (ngSubmit)="onSubmit()">
+
+  <input type="text" placeholder="Username" formControlName="username" required>
+  <div *ngIf="registerAccount.controls.username.invalid && (registerAccount.controls.username.dirty || registerAccount.controls.username.touched)">
+    <div *ngIf="registerAccount.controls.username.errors.required">
+      Username is required.
+    </div>
+  </div>
+
+  <input type="password" placeholder="Password" formControlName="password" required>
+  <div *ngIf="registerAccount.controls.password.invalid && (registerAccount.controls.password.dirty || registerAccount.controls.password.touched)">
+    <div *ngIf="registerAccount.controls.password.errors.required">
+      Username is required.
+    </div>
+    <div *ngIf="registerAccount.controls.password.errors.minlength">
+      Password must be at least 8 characters long.
+    </div>
+  </div>
+
+  <input type="password" placeholder="Repeat password" formControlName="repeatPassword" required>
+  <div *ngIf="registerAccount.controls.repeatPassword.invalid && (registerAccount.controls.repeatPassword.dirty || registerAccount.controls.repeatPassword.touched)">
+    <div *ngIf="registerAccount.controls.repeatPassword.errors.required">
+      Repeat password is required.
+    </div>
+  </div>
+
+  <div *ngIf="registerAccount.invalid && (registerAccount.dirty || registerAccount.touched) && registerAccount.errors">
+    <div *ngIf="registerAccount.errors.mismatch">
+      Passwords are not equal
+    </div>
+    <div *ngIf="registerAccount.errors.usernameTaken">
+      Username already taken
+    </div>
+    <div *ngIf="registerAccount.errors.incognitoError">
+      Something went wrong, please try again
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="registerAccount.invalid">Register account</button>
+
+</form>
+
